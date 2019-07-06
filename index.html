@@ -5,11 +5,40 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="onLoadPage()">
+    <div id="banner">
+
+    </div>
+    <script src="jquery-3.4.1.js">
+    </script>
     <script>
+        console.log(jQuery);
+        console.log($);
+
+        console.log(typeof $);
+        console.log(typeof jQuery);
+
+        console.log(jQuery == $);
+
+        function onLoadPage() {
+            $("<h1>", {
+                text: "none",
+                id: "welcome"
+            }).appendTo("#banner").css({
+                "background-color": "yellow",
+                "color": "red"
+            }).html("Welcome to Jquery");
+
+
+
+            var welcomeBanner = "<h2 id='bannerText'>make it simple and sort </h2>";
+            $('#banner').append(welcomeBanner);
+
+
+
+        }
     </script>
 </body>
 
