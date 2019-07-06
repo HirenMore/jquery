@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<body>
+    <center>
+        <button type="button" id="toggleButton">ON</button>
+        <div id="loadingBox"> </div>
+    </center>
+    <script src="jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            var toggleButton = $('#toggleButton');
+            $(function() {
+                $(toggleButton).click(function() {
+                    $("#loadingBox").html('<img id="loadingImage" src="loading.gif" />').toggle();
+                    $(this).text() == 'ON' ? $(this).text('OFF') : $(this).text('ON')
+                });
+            })
+        });
+    </script>
+</body>
+
+</html>
