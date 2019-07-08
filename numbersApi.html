@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id='getData'>
+        <input type="number" name="numbers" id="numberInput">
+        <button type="button" id='factButton'>Fact</button>
+    </div>
+    <div id='factsFrame'>
+
+    </div>
+    <script src='jquery-3.4.1.js'>
+    </script>
+    <script>
+        'use strict';
+        $(document).ready(function() {
+            var numberInput = $('#numberInput');
+            var evenNumberColor = 'red';
+            var oddNumberColor = 'green'
+            $("#factButton ").click(function() {
+                if (numberInput.val().length) {
+                    $.ajax({
+                        url: "http://numbersapi.com/" + numberInput.val(),
+                        success: function(result) {
+                            $("<p>").css({
+                                'color': numberInput.val() % 2 == 0 ? oddNumberColor : evenNumberColor
+                            }).appendTo("#factsFrame").html(result);
+                        }
+                    });
+                }
+            });
+            console.log('end of click');
+        });
+    </script>
+</body>
+
+</html>
