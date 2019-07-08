@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script src='jquery-3.4.1.js'></script>
+    <script>
+        $(document).ready(function() {
+            function Coustomer(firstName, lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }
+
+            Coustomer.prototype.getFullName = (function() {
+                return this.firstName + " " + this.lastName;
+            });
+            var c1 = new Coustomer("Hiren", "More");
+            var c2 = new Coustomer("Dev", "Patil");
+
+            console.log("Name : " + c1.getFullName());
+            console.log("Name : " + c2.getFullName());
+            console.log(c1.__proto__ == c2.__proto__);
+            console.log(c1.__proto__ == Coustomer.prototype);
+
+        });
+    </script>
+</body>
+
+</html>
