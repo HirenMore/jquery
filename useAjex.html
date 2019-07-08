@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id='showData'>
+        <p id='show'></p>
+    </div>
+    <script src='jquery-3.4.1.js'>
+    </script>
+    <script>
+        $(document).ready(function() {
+            var xhtml = new XMLHttpRequest();
+
+            function fatchData() {
+                xhtml.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        $('#show').append(this.responseText);
+                        console.log(this.responseText);
+                    }
+                };
+                xhtml.open("GET", "testText.txt", true);
+                xhtml.send();
+            }
+            fatchData();
+        });
+    </script>
+</body>
+
+</html>

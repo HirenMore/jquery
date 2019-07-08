@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script src='jquery-3.4.1.js'></script>
+    <script>
+        $(document).ready(function() {
+            function Car(model, year, km) {
+                this.model = model;
+                this.year = year;
+                this.km = km;
+            }
+            Car.prototype.getYear = function() {
+                return this.year;
+            };
+            var bmw = new Car("t300", "2017", "1000");
+            console.log(bmw.getYear());
+
+            function ElectricCar(votes, year) {
+                Car.call(this, 't3', year, '1000');
+                this.votes = votes;
+            }
+
+            ElectricCar.prototype = new Car();
+
+            ElectricCar.prototype.getVotes = function() {
+                console.log("The votes of the electic car is " + this.votes);
+            }
+
+            var tesla = new ElectricCar("1002", 2018);
+            tesla.getVotes();
+            console.log("year tesla realsed car was " + tesla.getYear());
+
+
+        });
+    </script>
+</body>
+
+</html>
