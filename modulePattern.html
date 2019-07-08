@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script src='jquery-3.4.1.js'></script>
+    <script>
+        $(document).ready(function() {
+            var makeElement = (function() {
+                var Br = function(parentNode) {
+                    $('<br>').appendTo(parentNode);
+                }
+                var p = function(id, displayText, parentNode) {
+                    $('<p>', {
+                        id: id,
+                        text: displayText
+                    }).css({
+                        "background-color": "green"
+                    }).appendTo(parentNode);
+                }
+                return {
+                    createP: function(id, displayText, parentNode) {
+                        p(id, displayText, parentNode);
+                    },
+                    crateBr: function(parentNode) {
+                        Br(parentNode);
+                    }
+                };
+            })();
+            makeElement.createP("hello", "HELLO", $('body'));
+            makeElement.crateBr("hello");
+            makeElement.createP("paragraph", "HELLO", $('body'));
+        });
+    </script>
+
+</body>
+
+</html>

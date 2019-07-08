@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+    <input type="text" id='textField' name="Text"><br>
+    <p id="displayText"></p>
+    <script src="jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#textField').on('input', function() {
+                $('#displayText').text($('#textField').val());
+            });
+        });
+    </script>
+</body>
+
+</html>
