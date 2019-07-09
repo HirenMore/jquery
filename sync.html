@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <center>
+        <button type="button" id='infinite'>Infinite loop </button>
+        <button type="button" id='hello'>hello </button>
+    </center>
+    <script src="jquery-3.4.1.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+
+            $('#infinite').click(function() {
+                while (true) {
+                    console.log("infinite");
+
+                }
+            })
+            $('#hello').click(function() {
+                alert('Hello');
+            })
+        });
+    </script>
+</body>
+
+</html>
