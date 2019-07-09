@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script src='jquery-3.4.1.js'></script>
+    <script>
+        $(document).ready(function() {
+            function cubeEven(number, callback) {
+                if (number % 2 == 0)
+                    return callback(number);
+                return "Not an even number";
+            }
+
+            function cubeEven2(number) {
+                return (Math.pow(number, 3));
+            }
+            console.log(cubeEven(6, cubeEven2));
+            console.log(cubeEven(5, cubeEven2));
+            console.log("end of  program");
+        });
+    </script>
+</body>
+
+</html>

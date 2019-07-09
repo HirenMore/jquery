@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script src='jquery-3.4.1.js'></script>
+    <script>
+        $(document).ready(function() {
+
+            function makeCustomer() {
+                var customer = {};
+                console.log(customer.__proto__ == Object.prototype);
+
+                var _firstName;
+                customer.setFirstName = function(name) {
+                    _firstName = name;
+                };
+                customer.getFirstName = function() {
+                    return _firstName;
+                };
+                return customer;
+            }
+
+            var c1 = makeCustomer();
+            c1.setFirstName("hiren");
+            console.log(c1.getFirstName());
+
+
+            var MathService = (function() {
+                return {
+                    isEven: function(number) {
+
+                        return number % 2 == 0 ? false : true;
+                    },
+                    cube: function(number) {
+                        return (isNaN(number) ?
+                            "Not a Number" : Math.pow(number, 3))
+                    }
+                };
+            })();
+            console.log("cube of 5 " + MathService.cube(5));
+            console.log("4 is even " + MathService.isEven(5));
+            console.log(MathService.cube("rd"));
+
+        });
+
+
+
+
+        //  console.log("4 is even : " + MathService.findIsEven(4));
+    </script>
+
+</body>
+
+</html>
