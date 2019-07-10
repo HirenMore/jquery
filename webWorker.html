@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Async with worker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <button type="button" id='infinite'>Infinite loop </button>
+    <button type="button" id='hello'>hello </button>
+    <button type="button" id='stopWorker'>stop worker </button>
+    <script src='jquery-3.4.1.js'>
+    </script>
+    <script>
+        $(document).ready(function() {
+
+            $('#infinite').click(function() {
+                var worker = new Worker('worker.js');
+                worker.onmessage;
+            })
+            $('#hello').click(function() {
+                alert('Hello');
+            })
+
+            $('#stopWorker').click(function() {
+                if (worker != undefined) {
+                    worker.terminate();
+                    worker = undefined;
+                }
+            })
+
+            console.log("at the end of script");
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script src="jquery-3.4.1.js">
+    </script>
+    <script>
+        var keptPromise = false;
+        var promise1 = new Promise(function(resolve, rejected) {
+            setTimeout(function() {
+                if (keptPromise)
+                    resolve("Jhon snow Kept promise")
+                if (!keptPromise)
+                    rejected("Jhon snow betrayed us")
+            }, 3000);
+        })
+
+        // promise1.then(function() {
+        //     console.log("Long live the king in the north");
+        // });
+        // promise1.catch(function() {
+        //     console.log("Get the new King");
+        // })
+
+        promise1.then(function() {
+            console.log("Long live the king");
+        }, function() {
+            console.log("Kill the king");
+        })
+
+        //promise chaining
+
+        new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    resolve(1)
+                }, 1000);
+            }).then(function(result) {
+                console.log("Result in first then " + result);
+
+                return result * 2;
+
+            }).then(function(result) {
+
+                console.log("Result in second  then " + result);
+                return result * 2;
+            })
+            .then(function(result) {
+                console.log("Result in third then " + result);
+                return result * 2;
+
+            })
+            .then(function(result) {
+                console.log("Result in forth then " + result);
+                return result * 2;
+            });
+
+
+        console.log("End of program");
+    </script>
+</body>
+
+</html>

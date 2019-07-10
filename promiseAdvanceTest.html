@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script src="jquery-3.4.1.js">
+    </script>
+    <script>
+        var keptPromise = true;
+        var promise1 = new Promise(function(resolve, rejected) {
+                if (keptPromise)
+                    resolve("Jhon snow Kept promise")
+                if (!keptPromise)
+                    rejected("Jhon snow betrayed us")
+            })
+            // promise1.then(function() {
+            //     console.log("Long live the king in the north");
+            // });
+            // promise1.catch(function() {
+            //     console.log("Get the new King");
+            // })
+
+        promise1.then(function() {
+            console.log("Long live the king");
+        }, function() {
+            console.log("Kill the king");
+        })
+    </script>
+</body>
+
+</html>

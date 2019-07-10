@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script src="jquery-3.4.1.js">
+    </script>
+    <script>
+        var promise1;
+
+        function cubeEven(number) {
+
+            return new Promise(function(fnResolve, fnRejected) {
+                if (number % 2 == 0) {
+                    fnResolve({
+                        value: Math.pow(number, 3)
+                    })
+                }
+                if (number % 2 != 0)
+                    fnRejected({
+                        error: "Number is not even"
+                    })
+            });
+        }
+
+        // cubeEven(22).then(function(resolvedObject) {
+        //     console.log("cube is " + resolvedObject.value);
+        // }).catch(function(rejectedObject) {
+        //     console.log("error  is " + rejectedObject.error);
+        // });
+
+        // cubeEven(2)
+        //     .then(function(resolvedObject) {
+        //         console.log("Cube  1 " + resolvedObject.value);
+        //         return resolvedObject;
+        //     }).then(function(resolvedObject) {
+        //         cubeEven(resolvedObject.value)
+        //         console.log("cube 2 " + resolvedObject.value);
+        //         return resolvedObject.value;
+        //     }).then(function(result) {
+        //         cubeEven(resolvedObject.value)
+        //         console.log("cube 3 " + resolvedObject.value);
+        //         return resolvedObject.value;
+
+        //     })
+
+
+
+
+        function cube(number) {
+
+            return new Promise(function(fnResolve, fnRejected) {
+                if (number % 2 == 0) {
+                    fnResolve(Math.pow(number, 3))
+                }
+                if (number % 2 != 0)
+                    fnRejected("Not even number")
+            });
+        }
+
+
+        cube(2).then(function(result) {
+                return result;
+            })
+            .then(function(result) {
+                console.log("Result in second then " + result);
+                return cube(result);
+
+            })
+            .then(function(result) {
+                console.log("Result in third then " + result);
+                return cube(result);
+            })
+            .then(function(result) {
+                console.log("Result in forth then " + result);
+                return cube(result);
+            })
+            .then(function(result) {
+                console.log("Result in fifth then " + result);
+                // return cube(result);
+            });
+        console.log("end of program");
+
+
+
+
+
+        // new Promise(function(resolve, reject) {
+        //         resolve(3)
+        //     }).then(function(result) {
+        //         console.log("Result in first then " + result);
+
+        //         return result * 2;
+
+        //     }).then(function(result) {
+
+        //         console.log("Result in second  then " + result);
+        //         return result * 2;
+        //     })
+        //     .then(function(result) {
+        //         console.log("Result in third then " + result);
+        //         return result * 2;
+
+        //     })
+        //     .then(function(result) {
+        //         console.log("Result in forth then " + result);
+        //         return result * 2;
+        //     });
+    </script>
+</body>
+
+</html>
